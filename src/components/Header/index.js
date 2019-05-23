@@ -28,55 +28,35 @@ const SelectMonitType = (props) => {
 }
 
 const SelectStatus = (props) => {
-	if(props.type === '1' || props.type === '2') {
-		return (
-			<Select>
-				<option>Alocado</option>
-				<option>Não Alocado</option>
-			</Select>
-		)
-	}else{
-		return (
-			null
-		)
-	}
+	return (props.type === '1' || props.type === '2') &&
+		<Select>
+			<option>Alocado</option>
+			<option>Não Alocado</option>
+		</Select>
+
 }
 
 const SelectDisposition = (props) => {
-	if(props.type === '1' || props.type === '2') {
-		return (
-			<Select>
-				<option>Conectado</option>
-				<option>Indisponível</option>
-			</Select>
-		)
-	}else{
-		return (
-			null
-		)
-	}
+	return (props.type === '1' || props.type === '2') &&
+		<Select>
+			<option>Conectado</option>
+			<option>Indisponível</option>
+		</Select>
+
 }
 
 const SelectCallDisposition = (props) => {
-	if(props.type === '3') {
-		return (
-			<Select>
-				<option>Iniciada</option>
-				<option>Originada</option>
-				<option>Recebida</option>
-				<option>Estabelecida</option>
-			</Select>
-		)
-	}else{
-		return (
-			null
-		)
-	}
+	return (props.type === '3') &&
+		<Select>
+			<option>Iniciada</option>
+			<option>Originada</option>
+			<option>Recebida</option>
+			<option>Estabelecida</option>
+		</Select>
 }
 
 const SelectAccessControl = (props) => {
-	if(props.type === '8') {
-		return (
+	return (props.type === '8')  &&
 			<div>
 				<Select>
 					<option>Site 01</option>
@@ -88,12 +68,6 @@ const SelectAccessControl = (props) => {
 					<option>Atendentes</option>
 				</Select>
 			</div>
-		)
-	}else{
-		return (
-			null
-		)
-	}
 }
 
 class Header extends Component {
@@ -113,8 +87,6 @@ class Header extends Component {
 
 	render() {
 		
-		console.log('re-rendered');
-
 		return (
 			<header id="main-header">
 				<SelectMonitType changeMonitType={this.changeMonitType} type={this.state.type} />
